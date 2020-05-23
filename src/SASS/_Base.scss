@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color: white;
+  font-family: $default-font;
+  font-size: 10px;
+}
+
+.App {
+  background-color: #000;
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.title {
+  font-size: 7rem;
+}

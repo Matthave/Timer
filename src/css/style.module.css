@@ -1,0 +1,30 @@
+@font-face {
+  font-family: myFont;
+  src: url("../fonts/Azonix.otf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  color: white;
+  font-family: myFont;
+  font-size: 10px;
+}
+
+.App {
+  background-color: #000;
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.title {
+  font-size: 7rem;
+}
+/*# sourceMappingURL=style.module.css.map */
