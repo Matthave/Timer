@@ -27,19 +27,11 @@ class Timer extends React.Component {
           numberValue > 99 || numberValue < 0 ? 99 : parseInt(numberValue, 10)
         }`,
       });
-      return;
-    }
-    if (
-      numberValue > 59 ||
-      numberValue < 0 ||
-      typeof numberValue !== "number"
-    ) {
-      this.setState({
-        [e.target.name]: 59,
-      });
     } else {
       this.setState({
-        [e.target.name]: numberValue,
+        [e.target.name]: `${
+          numberValue > 59 || numberValue < 0 ? 59 : parseInt(numberValue, 10)
+        }`,
       });
     }
   };
@@ -74,6 +66,17 @@ class Timer extends React.Component {
             hoursInput: hoursInput - 1,
           });
         }
+        document.title = `${
+          this.state.stopWatchVisibility
+            ? (document.title = "TIME IS UP")
+            : (document.title = `${`${
+                hoursInput <= 9 ? `0${hoursInput}` : hoursInput
+              }`}:${`${
+                minutesInput <= 9 ? `0${minutesInput}` : minutesInput
+              }`}:${`${
+                secondsInput <= 9 ? `0${secondsInput}` : secondsInput
+              }`}`)
+        }`;
         if (
           hoursInput === 0 &&
           minutesInput === 0 &&
@@ -112,6 +115,7 @@ class Timer extends React.Component {
 
   hideStopWatch = () => {
     document.querySelector("audio").pause();
+    document.title = `Timer With Alarm`;
     this.setState({
       stopWatchVisibility: false,
     });
