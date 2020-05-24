@@ -15,10 +15,21 @@ html {
   background-color: #000;
   min-height: 100vh;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 75px;
 }
 
 .title {
   font-size: 7rem;
   min-width: 375px;
+}
+
+@media (min-width: 800px) {
+  .App {
+    padding-top: 100px;
+  }
+
+  .title {
+    font-size: 10rem;
+    min-width: 500px;
+  }
 }

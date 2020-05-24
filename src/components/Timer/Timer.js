@@ -8,6 +8,8 @@ class Timer extends React.Component {
     minutesInput: 0,
     secondsInput: 0,
     editIcon: true,
+    intervalId: "",
+    flag: true,
   };
 
   handleInputChange = (e) => {
@@ -21,33 +23,46 @@ class Timer extends React.Component {
   };
 
   handleEditIcon = () => {
+    clearInterval(this.state.intervalId);
     this.setState({
       editIcon: !this.state.editIcon,
+      flag: true,
     });
   };
 
   timerStart = () => {
-    setInterval(() => {
-      const { secondsInput, minutesInput, hoursInput } = this.state;
-      if (secondsInput > 0) {
-        this.setState({
-          secondsInput: secondsInput - 1,
-        });
-      }
-      if (secondsInput === 0 && minutesInput > 0) {
-        this.setState({
-          secondsInput: 59,
-          minutesInput: minutesInput - 1,
-        });
-      }
-      if (secondsInput === 0 && minutesInput === 0 && hoursInput > 0) {
-        this.setState({
-          secondsInput: 59,
-          minutesInput: 59,
-          hoursInput: hoursInput - 1,
-        });
-      }
-    }, 1000);
+    if (this.state.flag) {
+      const interval = setInterval(() => {
+        const { secondsInput, minutesInput, hoursInput } = this.state;
+        if (secondsInput > 0) {
+          this.setState({
+            secondsInput: secondsInput - 1,
+          });
+        }
+        if (secondsInput === 0 && minutesInput > 0) {
+          this.setState({
+            secondsInput: 59,
+            minutesInput: minutesInput - 1,
+          });
+        }
+        if (secondsInput === 0 && minutesInput === 0 && hoursInput > 0) {
+          this.setState({
+            secondsInput: 59,
+            minutesInput: 59,
+            hoursInput: hoursInput - 1,
+          });
+        }
+      }, 1000);
+      this.setState({
+        intervalId: interval,
+        flag: !this.state.flag,
+      });
+    } else {
+      clearInterval(this.state.intervalId);
+      this.setState({
+        flag: !this.state.flag,
+      });
+    }
   };
 
   resetTimer = () => {
@@ -59,7 +74,13 @@ class Timer extends React.Component {
     });
   };
   render() {
-    const { editIcon, secondsInput, minutesInput, hoursInput } = this.state;
+    const {
+      editIcon,
+      secondsInput,
+      minutesInput,
+      hoursInput,
+      flag,
+    } = this.state;
     return (
       <div className={styles.timer}>
         <section className={styles.timerSection}>
@@ -122,7 +143,9 @@ class Timer extends React.Component {
             })}
           ></div>
           <div
-            className={cx("fas fa-play", {
+            className={cx({
+              "fas fa-play": flag,
+              "fas fa-pause": !flag,
               [styles.disabled]: !editIcon,
             })}
             onClick={editIcon ? this.timerStart : null}
