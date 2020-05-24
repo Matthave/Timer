@@ -80,6 +80,7 @@ class Timer extends React.Component {
           secondsInput === 0 &&
           !this.state.flag
         ) {
+          document.querySelector("audio").play();
           this.setState({
             flag: !this.state.flag,
             stopWatchVisibility: true,
@@ -110,6 +111,7 @@ class Timer extends React.Component {
   };
 
   hideStopWatch = () => {
+    document.querySelector("audio").pause();
     this.setState({
       stopWatchVisibility: false,
     });
@@ -176,10 +178,11 @@ class Timer extends React.Component {
         </section>
         <section className={styles.iconSection}>
           <div
-            onClick={this.handleEditIcon}
+            onClick={stopWatchVisibility ? null : this.handleEditIcon}
             className={cx({
               "fas fa-edit": !editIcon,
               "fas fa-check": editIcon,
+              [styles.disabled]: stopWatchVisibility,
             })}
           ></div>
           <div
@@ -197,7 +200,12 @@ class Timer extends React.Component {
                 : this.timerStart
             }
           ></div>
-          <div className="fas fa-undo-alt" onClick={this.resetTimer}></div>
+          <div
+            className={cx("fas fa-undo-alt", {
+              [styles.disabled]: stopWatchVisibility,
+            })}
+            onClick={stopWatchVisibility ? null : this.resetTimer}
+          ></div>
         </section>
         <div
           className={cx("fas fa-stopwatch", styles.stopWatch, {
@@ -205,13 +213,11 @@ class Timer extends React.Component {
           })}
           onClick={this.hideStopWatch}
         ></div>
-        {stopWatchVisibility ? (
-          <audio loop="loop" autoPlay>
-            <source src={alarmSound} type="audio/mpeg" />
-            <source src={alarmSound} type="audio/wav" />
-            <source src={alarmSound} type="audio/ogg" />
-          </audio>
-        ) : null}
+        <audio loop="loop">
+          <source src={alarmSound} type="audio/mpeg" />
+          <source src={alarmSound} type="audio/wav" />
+          <source src={alarmSound} type="audio/ogg" />
+        </audio>
       </div>
     );
   }

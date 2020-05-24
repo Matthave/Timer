@@ -36,9 +36,6 @@ html {
 }
 
 @media (min-width: 800px) {
-  .App {
-    padding-top: 100px;
-  }
   .title {
     font-size: 10rem;
     min-width: 500px;
@@ -123,14 +120,14 @@ html {
     height: 150px;
     font-size: 10rem;
     padding: 0 20px;
-    margin-top: 100px;
+    margin-top: 75px;
   }
   .timerSection__label {
     font-size: 2rem;
   }
   .iconSection {
     width: 500px;
-    margin-top: 70px;
+    margin-top: 60px;
   }
   .iconSection div {
     font-size: 3rem;
