@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Timer/static/css/main.fad228ab.chunk.css",
+    "main.css": "/Timer/static/css/main.68bfad21.chunk.css",
     "main.js": "/Timer/static/js/main.eb0adad2.chunk.js",
     "main.js.map": "/Timer/static/js/main.eb0adad2.chunk.js.map",
     "runtime-main.js": "/Timer/static/js/runtime-main.371e1ba1.js",
@@ -8,9 +8,9 @@
     "static/js/2.83bd253c.chunk.js": "/Timer/static/js/2.83bd253c.chunk.js",
     "static/js/2.83bd253c.chunk.js.map": "/Timer/static/js/2.83bd253c.chunk.js.map",
     "index.html": "/Timer/index.html",
-    "precache-manifest.5112dce2b6ea9edd0bd4146a3658448f.js": "/Timer/precache-manifest.5112dce2b6ea9edd0bd4146a3658448f.js",
+    "precache-manifest.a7536353f6fd2b73f398f4bf95e4de9c.js": "/Timer/precache-manifest.a7536353f6fd2b73f398f4bf95e4de9c.js",
     "service-worker.js": "/Timer/service-worker.js",
-    "static/css/main.fad228ab.chunk.css.map": "/Timer/static/css/main.fad228ab.chunk.css.map",
+    "static/css/main.68bfad21.chunk.css.map": "/Timer/static/css/main.68bfad21.chunk.css.map",
     "static/js/2.83bd253c.chunk.js.LICENSE.txt": "/Timer/static/js/2.83bd253c.chunk.js.LICENSE.txt",
     "static/media/style.module.css": "/Timer/static/media/Azonix.cdfe47b3.otf",
     "static/media/clockAlarm.mp3": "/Timer/static/media/clockAlarm.e548390a.mp3"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.371e1ba1.js",
     "static/js/2.83bd253c.chunk.js",
-    "static/css/main.fad228ab.chunk.css",
+    "static/css/main.68bfad21.chunk.css",
     "static/js/main.eb0adad2.chunk.js"
   ]
 }
