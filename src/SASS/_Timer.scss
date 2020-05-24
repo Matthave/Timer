@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 375px;
+  width: 320px;
   margin: 0 auto;
 }
 
@@ -18,25 +18,37 @@
     border: 1px solid white;
     color: white;
     font-size: 7rem;
-    padding: 0 10px;
+    text-align: center;
+    &:focus {
+      border: 1px solid rgb(105, 162, 218);
+      outline: none;
+    }
   }
   &__label {
     font-size: 1.5rem;
   }
 }
 
+.timerSection:nth-child(1) > input {
+  border-right: none;
+}
+.timerSection:nth-child(3) > input {
+  border-left: none;
+}
+
 .iconSection {
   display: flex;
   justify-content: space-around;
-  width: 375px;
+  width: 320px;
   margin-top: 50px;
   div {
     color: #fff;
     font-size: 2.8rem;
     width: 30px;
     cursor: pointer;
+    transition: 0.1s linear;
     &:hover {
-      color: rgb(113, 167, 113);
+      color: #39a78c;
     }
   }
   div.disabled {
@@ -58,7 +70,6 @@
     width: 150px;
     height: 150px;
     font-size: 10rem;
-    padding: 0 20px;
     margin-top: 75px;
   }
 
@@ -84,6 +95,7 @@
   animation: alarm 0.15s linear infinite;
   color: #c93030;
   cursor: pointer;
+  transition: 0.1s linear;
   &__visibility {
     display: block;
   }
