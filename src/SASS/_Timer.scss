@@ -1,0 +1,50 @@
+.timer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 375px;
+  margin: 0 auto;
+}
+
+.timerSection {
+  display: flex;
+  flex-direction: column;
+  &__input {
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-color: #000;
+    border: 1px solid white;
+    color: white;
+    font-size: 7rem;
+    padding: 0 10px;
+  }
+  &__label {
+    font-size: 1.5rem;
+  }
+}
+
+.iconSection {
+  display: flex;
+  justify-content: space-around;
+  width: 375px;
+  margin-top: 50px;
+  div {
+    color: #fff;
+    font-size: 2.8rem;
+    width: 30px;
+    cursor: pointer;
+    &:hover {
+      color: rgb(113, 167, 113);
+    }
+  }
+  div.disabled {
+    color: #555;
+    cursor: initial;
+  }
+}
+
+.disabledInput {
+  border: 1px solid black;
+}
