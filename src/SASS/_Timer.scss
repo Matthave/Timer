@@ -74,3 +74,34 @@
     }
   }
 }
+
+.stopWatch {
+  display: none;
+  color: #fff;
+  font-size: 5rem;
+  width: 40px;
+  margin-top: 100px;
+  animation: alarm 0.15s linear infinite;
+  color: #c93030;
+  cursor: pointer;
+  &__visibility {
+    display: block;
+  }
+  &:hover {
+    color: rgb(113, 167, 113);
+  }
+}
+
+@keyframes alarm {
+  0% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(-2px);
+  }
+}
