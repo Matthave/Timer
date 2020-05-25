@@ -1,6 +1,7 @@
 import React from "react";
-import cx from "classnames";
-import alarmSound from "../../sounds/clockAlarm.mp3";
+import Input from "../Inputs/Input";
+import HandleIcon from "../HandleIcon/HandleIcon";
+import AlertIcon from "../AlertIcon/AlertIcon";
 import styles from "../../css/style.module.css";
 
 class Timer extends React.Component {
@@ -10,7 +11,7 @@ class Timer extends React.Component {
     secondsInput: 0,
     editIcon: true,
     intervalId: "",
-    flag: true,
+    availableToStartFlag: true,
     stopWatchVisibility: false,
   };
 
@@ -61,14 +62,19 @@ class Timer extends React.Component {
     clearInterval(this.state.intervalId);
     this.setState({
       editIcon: !this.state.editIcon,
-      flag: true,
+      availableToStartFlag: true,
     });
   };
 
   timerStart = () => {
-    if (this.state.flag) {
+    if (this.state.availableToStartFlag) {
       const interval = setInterval(() => {
-        const { secondsInput, minutesInput, hoursInput } = this.state;
+        const {
+          secondsInput,
+          minutesInput,
+          hoursInput,
+          availableToStartFlag,
+        } = this.state;
         if (secondsInput > 0) {
           this.setState({
             secondsInput: secondsInput - 1,
@@ -102,23 +108,23 @@ class Timer extends React.Component {
           hoursInput === 0 &&
           minutesInput === 0 &&
           secondsInput === 0 &&
-          !this.state.flag
+          !availableToStartFlag
         ) {
           document.querySelector("audio").play();
           this.setState({
-            flag: !this.state.flag,
+            availableToStartFlag: !availableToStartFlag,
             stopWatchVisibility: true,
           });
         }
       }, 1000);
       this.setState({
         intervalId: interval,
-        flag: !this.state.flag,
+        availableToStartFlag: !this.state.availableToStartFlag,
       });
     } else {
       clearInterval(this.state.intervalId);
       this.setState({
-        flag: !this.state.flag,
+        availableToStartFlag: !this.state.availableToStartFlag,
       });
     }
   };
@@ -130,7 +136,7 @@ class Timer extends React.Component {
       minutesInput: 0,
       secondsInput: 0,
       editIcon: true,
-      flag: true,
+      availableToStartFlag: true,
     });
   };
 
@@ -149,100 +155,44 @@ class Timer extends React.Component {
       secondsInput,
       minutesInput,
       hoursInput,
-      flag,
+      availableToStartFlag,
       stopWatchVisibility,
     } = this.state;
     return (
       <div className={styles.timer}>
-        <section className={styles.timerSection}>
-          <input
-            className={cx(styles.timerSection__input, {
-              [styles.disabledInput]: !editIcon,
-            })}
-            type="number"
-            value={hoursInput <= 9 ? `0${hoursInput}` : hoursInput}
-            onChange={(e) => this.handleInputChange(e)}
-            name="hoursInput"
-            disabled={editIcon ? false : true}
-          />
-          <label className={styles.timerSection__label} htmlFor="hours">
-            Hours
-          </label>
-        </section>
-        <section className={styles.timerSection}>
-          <input
-            className={cx(styles.timerSection__input, {
-              [styles.disabledInput]: !editIcon,
-            })}
-            type="number"
-            value={minutesInput <= 9 ? `0${minutesInput}` : minutesInput}
-            onChange={(e) => this.handleInputChange(e)}
-            name="minutesInput"
-            disabled={editIcon ? false : true}
-          />
-          <label className={styles.timerSection__label} htmlFor="">
-            Minutes
-          </label>
-        </section>
-        <section className={styles.timerSection}>
-          <input
-            className={cx(styles.timerSection__input, {
-              [styles.disabledInput]: !editIcon,
-            })}
-            type="number"
-            min="0"
-            max="59"
-            value={secondsInput <= 9 ? `0${secondsInput}` : secondsInput}
-            onChange={(e) => this.handleInputChange(e)}
-            name="secondsInput"
-            disabled={editIcon ? false : true}
-          />
-          <label className={styles.timerSection__label} htmlFor="">
-            Seconds
-          </label>
-        </section>
-        <section className={styles.iconSection}>
-          <div
-            onClick={stopWatchVisibility ? null : this.handleEditIcon}
-            className={cx({
-              "fas fa-edit": !editIcon,
-              "fas fa-check": editIcon,
-              [styles.disabled]: stopWatchVisibility,
-            })}
-          ></div>
-          <div
-            className={cx({
-              "fas fa-play": flag,
-              "fas fa-pause": !flag,
-              [styles.disabled]:
-                editIcon ||
-                (secondsInput === 0 && hoursInput === 0 && minutesInput === 0),
-            })}
-            onClick={
-              editIcon ||
-              (secondsInput === 0 && hoursInput === 0 && minutesInput === 0)
-                ? null
-                : this.timerStart
-            }
-          ></div>
-          <div
-            className={cx("fas fa-undo-alt", {
-              [styles.disabled]: stopWatchVisibility,
-            })}
-            onClick={stopWatchVisibility ? null : this.resetTimer}
-          ></div>
-        </section>
-        <div
-          className={cx("fas fa-stopwatch", styles.stopWatch, {
-            [styles.stopWatch__visibility]: stopWatchVisibility,
-          })}
-          onClick={this.hideStopWatch}
-        ></div>
-        <audio loop="loop">
-          <source src={alarmSound} type="audio/mpeg" />
-          <source src={alarmSound} type="audio/wav" />
-          <source src={alarmSound} type="audio/ogg" />
-        </audio>
+        <Input
+          editIcon={editIcon}
+          secondsInput={hoursInput}
+          name="hoursInput"
+          handleInputChange={this.handleInputChange}
+        />
+        <Input
+          editIcon={editIcon}
+          secondsInput={minutesInput}
+          name="minutesInput"
+          handleInputChange={this.handleInputChange}
+        />
+        <Input
+          editIcon={editIcon}
+          secondsInput={secondsInput}
+          name="secondsInput"
+          handleInputChange={this.handleInputChange}
+        />
+        <HandleIcon
+          editIcon={editIcon}
+          secondsInput={secondsInput}
+          minutesInput={minutesInput}
+          hoursInput={hoursInput}
+          availableToStartFlag={availableToStartFlag}
+          stopWatchVisibility={stopWatchVisibility}
+          handleEditIcon={this.handleEditIcon}
+          timerStart={this.timerStart}
+          resetTimer={this.resetTimer}
+        />
+        <AlertIcon
+          stopWatchVisibility={stopWatchVisibility}
+          hideStopWatch={this.hideStopWatch}
+        />
       </div>
     );
   }

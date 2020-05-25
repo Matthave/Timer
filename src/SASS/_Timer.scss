@@ -53,9 +53,6 @@
     width: 30px;
     cursor: pointer;
     transition: 0.1s linear;
-    &:hover {
-      color: #39a78c;
-    }
   }
   div.disabled {
     color: #555;
@@ -88,6 +85,9 @@
     margin-top: 60px;
     div {
       font-size: 3rem;
+      &:hover {
+        color: #39a78c;
+      }
     }
   }
 }

@@ -123,10 +123,6 @@ html {
   transition: 0.1s linear;
 }
 
-.iconSection div:hover {
-  color: #39a78c;
-}
-
 .iconSection div.disabled {
   color: #555;
   cursor: initial;
@@ -155,6 +151,9 @@ html {
   }
   .iconSection div {
     font-size: 3rem;
+  }
+  .iconSection div:hover {
+    color: #39a78c;
   }
 }
 
