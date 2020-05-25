@@ -21,6 +21,7 @@ class Timer extends React.Component {
 
   stopAlarmBySpace = (e) => {
     const { stopWatchVisibility, secondsInput, editIcon } = this.state;
+
     if (e.which === 13 && !stopWatchVisibility) {
       this.handleEditIcon();
     }
@@ -75,22 +76,30 @@ class Timer extends React.Component {
           hoursInput,
           availableToStartFlag,
         } = this.state;
-        if (secondsInput > 0) {
+
+        const secondsInputToNumber = Number(secondsInput);
+        const minutesInputToNumber = Number(minutesInput);
+        const hoursInputToNumber = Number(hoursInput);
+        if (secondsInputToNumber > 0) {
           this.setState({
-            secondsInput: secondsInput - 1,
+            secondsInput: secondsInputToNumber - 1,
           });
         }
-        if (secondsInput === 0 && minutesInput > 0) {
+        if (secondsInputToNumber === 0 && minutesInputToNumber > 0) {
           this.setState({
             secondsInput: 59,
-            minutesInput: minutesInput - 1,
+            minutesInput: minutesInputToNumber - 1,
           });
         }
-        if (secondsInput === 0 && minutesInput === 0 && hoursInput > 0) {
+        if (
+          secondsInputToNumber === 0 &&
+          minutesInputToNumber === 0 &&
+          hoursInputToNumber > 0
+        ) {
           this.setState({
             secondsInput: 59,
             minutesInput: 59,
-            hoursInput: hoursInput - 1,
+            hoursInput: hoursInputToNumber - 1,
           });
         }
         document.title = `${
@@ -105,9 +114,9 @@ class Timer extends React.Component {
               }`}`)
         }`;
         if (
-          hoursInput === 0 &&
-          minutesInput === 0 &&
-          secondsInput === 0 &&
+          hoursInputToNumber === 0 &&
+          minutesInputToNumber === 0 &&
+          secondsInputToNumber === 0 &&
           !availableToStartFlag
         ) {
           document.querySelector("audio").play();
@@ -131,6 +140,7 @@ class Timer extends React.Component {
 
   resetTimer = () => {
     clearInterval(this.state.intervalId);
+    document.title = "Timer With Alarm";
     this.setState({
       hoursInput: 0,
       minutesInput: 0,

@@ -57,6 +57,9 @@
   div.disabled {
     color: #555;
     cursor: initial;
+    &:hover {
+      color: #555;
+    }
   }
 }
 
@@ -86,7 +89,7 @@
     div {
       font-size: 3rem;
       &:hover {
-        color: #39a78c;
+        color: rgb(0, 129, 255);
       }
     }
   }
@@ -97,7 +100,7 @@
   color: #fff;
   font-size: 5rem;
   width: 40px;
-  margin-top: 100px;
+  margin-top: 75px;
   animation: alarm 0.15s linear infinite;
   color: #c93030;
   cursor: pointer;
@@ -106,7 +109,7 @@
     display: block;
   }
   &:hover {
-    color: rgb(113, 167, 113);
+    color: rgb(0, 129, 255);
   }
 }
 

@@ -22,6 +22,7 @@ const HandleIcon = ({
           "fas fa-check": editIcon,
           [styles.disabled]: stopWatchVisibility,
         })}
+        title={editIcon ? "Accept" : "Edit"}
       ></div>
       <div
         className={cx({
@@ -37,12 +38,14 @@ const HandleIcon = ({
             ? null
             : timerStart
         }
+        title={availableToStartFlag ? "Play" : "Stop"}
       ></div>
       <div
         className={cx("fas fa-undo-alt", {
           [styles.disabled]: stopWatchVisibility,
         })}
         onClick={stopWatchVisibility ? null : resetTimer}
+        title="Refresh"
       ></div>
     </section>
   );
