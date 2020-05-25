@@ -17,11 +17,12 @@
     background-color: #000;
     border: 1px solid white;
     color: white;
-    font-size: 7rem;
+    font-size: 6.5rem;
     text-align: center;
     &:focus {
       border: 1px solid rgb(105, 162, 218);
       outline: none;
+      font-size: 7rem;
     }
   }
   &__label {
@@ -31,9 +32,14 @@
 
 .timerSection:nth-child(1) > input {
   border-right: none;
+  transition: border 0.2s linear, font-size 0.1s linear;
+}
+.timerSection:nth-child(2) > input {
+  transition: border 0.2s 0.1s linear, font-size 0.1s linear;
 }
 .timerSection:nth-child(3) > input {
   border-left: none;
+  transition: border 0.2s 0.2s linear, font-size 0.1s linear;
 }
 
 .iconSection {

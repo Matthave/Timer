@@ -73,13 +73,14 @@ html {
   background-color: #000;
   border: 1px solid white;
   color: white;
-  font-size: 7rem;
+  font-size: 6.5rem;
   text-align: center;
 }
 
 .timerSection__input:focus {
   border: 1px solid #69a2da;
   outline: none;
+  font-size: 7rem;
 }
 
 .timerSection__label {
@@ -88,10 +89,19 @@ html {
 
 .timerSection:nth-child(1) > input {
   border-right: none;
+  -webkit-transition: border 0.2s linear, font-size 0.1s linear;
+  transition: border 0.2s linear, font-size 0.1s linear;
+}
+
+.timerSection:nth-child(2) > input {
+  -webkit-transition: border 0.2s 0.1s linear, font-size 0.1s linear;
+  transition: border 0.2s 0.1s linear, font-size 0.1s linear;
 }
 
 .timerSection:nth-child(3) > input {
   border-left: none;
+  -webkit-transition: border 0.2s 0.2s linear, font-size 0.1s linear;
+  transition: border 0.2s 0.2s linear, font-size 0.1s linear;
 }
 
 .iconSection {

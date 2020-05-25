@@ -19,13 +19,18 @@ class Timer extends React.Component {
   }
 
   stopAlarmBySpace = (e) => {
-    const { stopWatchVisibility, secondsInput } = this.state;
-    if (e.which === 13) {
+    const { stopWatchVisibility, secondsInput, editIcon } = this.state;
+    if (e.which === 13 && !stopWatchVisibility) {
       this.handleEditIcon();
     }
     if (e.which === 32 && stopWatchVisibility) {
       this.hideStopWatch();
-    } else if (e.which === 32 && !stopWatchVisibility && secondsInput !== 0) {
+    } else if (
+      e.which === 32 &&
+      !stopWatchVisibility &&
+      secondsInput !== 0 &&
+      !editIcon
+    ) {
       this.timerStart();
     }
   };
