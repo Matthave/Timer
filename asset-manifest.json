@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Timer/static/css/main.68bfad21.chunk.css",
-    "main.js": "/Timer/static/js/main.2d6ebd15.chunk.js",
-    "main.js.map": "/Timer/static/js/main.2d6ebd15.chunk.js.map",
+    "main.css": "/Timer/static/css/main.2041a8e4.chunk.css",
+    "main.js": "/Timer/static/js/main.646a4595.chunk.js",
+    "main.js.map": "/Timer/static/js/main.646a4595.chunk.js.map",
     "runtime-main.js": "/Timer/static/js/runtime-main.371e1ba1.js",
     "runtime-main.js.map": "/Timer/static/js/runtime-main.371e1ba1.js.map",
     "static/js/2.83bd253c.chunk.js": "/Timer/static/js/2.83bd253c.chunk.js",
     "static/js/2.83bd253c.chunk.js.map": "/Timer/static/js/2.83bd253c.chunk.js.map",
     "index.html": "/Timer/index.html",
-    "precache-manifest.24a6e0f2332ab0d653d4d1d5cec2d2e0.js": "/Timer/precache-manifest.24a6e0f2332ab0d653d4d1d5cec2d2e0.js",
+    "precache-manifest.1297bc654c182f349c088d14b57138b6.js": "/Timer/precache-manifest.1297bc654c182f349c088d14b57138b6.js",
     "service-worker.js": "/Timer/service-worker.js",
-    "static/css/main.68bfad21.chunk.css.map": "/Timer/static/css/main.68bfad21.chunk.css.map",
+    "static/css/main.2041a8e4.chunk.css.map": "/Timer/static/css/main.2041a8e4.chunk.css.map",
     "static/js/2.83bd253c.chunk.js.LICENSE.txt": "/Timer/static/js/2.83bd253c.chunk.js.LICENSE.txt",
     "static/media/style.module.css": "/Timer/static/media/Azonix.cdfe47b3.otf",
     "static/media/clockAlarm.mp3": "/Timer/static/media/clockAlarm.e548390a.mp3"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.371e1ba1.js",
     "static/js/2.83bd253c.chunk.js",
-    "static/css/main.68bfad21.chunk.css",
-    "static/js/main.2d6ebd15.chunk.js"
+    "static/css/main.2041a8e4.chunk.css",
+    "static/js/main.646a4595.chunk.js"
   ]
 }
