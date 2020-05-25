@@ -14,6 +14,22 @@ class Timer extends React.Component {
     stopWatchVisibility: false,
   };
 
+  componentDidMount() {
+    window.addEventListener("keypress", (e) => this.stopAlarmBySpace(e));
+  }
+
+  stopAlarmBySpace = (e) => {
+    const { stopWatchVisibility, secondsInput } = this.state;
+    if (e.which === 13) {
+      this.handleEditIcon();
+    }
+    if (e.which === 32 && stopWatchVisibility) {
+      this.hideStopWatch();
+    } else if (e.which === 32 && !stopWatchVisibility && secondsInput !== 0) {
+      this.timerStart();
+    }
+  };
+
   handleInputChange = (e) => {
     const numberValue = Number(e.target.value);
 
