@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import styles from "../../css/style.module.css";
 
-const Input = ({ editIcon, secondsInput, name, handleInputChange }) => {
+const Input = ({ editIcon, secondsInput, name, handleInputChange, text }) => {
   return (
     <section className={styles.timerSection}>
       <input
@@ -17,7 +17,7 @@ const Input = ({ editIcon, secondsInput, name, handleInputChange }) => {
         name={name}
         disabled={editIcon ? false : true}
       />
-      <label className={styles.timerSection__label}>Seconds</label>
+      <label className={styles.timerSection__label}>{text}</label>
     </section>
   );
 };

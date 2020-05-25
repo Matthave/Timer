@@ -119,7 +119,8 @@ class Timer extends React.Component {
           secondsInputToNumber === 0 &&
           !availableToStartFlag
         ) {
-          document.querySelector("audio").play();
+          const alarmSound = document.querySelector("audio");
+          alarmSound.play();
           this.setState({
             availableToStartFlag: !availableToStartFlag,
             stopWatchVisibility: true,
@@ -151,7 +152,8 @@ class Timer extends React.Component {
   };
 
   hideStopWatch = () => {
-    document.querySelector("audio").pause();
+    const alarmSound = document.querySelector("audio");
+    alarmSound.pause();
     document.title = `Timer With Alarm`;
     this.setState({
       stopWatchVisibility: false,
@@ -174,18 +176,21 @@ class Timer extends React.Component {
           editIcon={editIcon}
           secondsInput={hoursInput}
           name="hoursInput"
+          text="Hours"
           handleInputChange={this.handleInputChange}
         />
         <Input
           editIcon={editIcon}
           secondsInput={minutesInput}
           name="minutesInput"
+          text="Minutes"
           handleInputChange={this.handleInputChange}
         />
         <Input
           editIcon={editIcon}
           secondsInput={secondsInput}
           name="secondsInput"
+          text="Seconds"
           handleInputChange={this.handleInputChange}
         />
         <HandleIcon

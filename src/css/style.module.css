@@ -77,6 +77,10 @@ html {
   text-align: center;
 }
 
+.timerSection__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .timerSection__input:focus {
   border: 1px solid #69a2da;
   outline: none;
